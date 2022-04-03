@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Menu {
     private ArrayList<String> menuList = new ArrayList();
-    private ArrayList<String> menuName = new ArrayList();
+    private static ArrayList<String> menuName = new ArrayList();
 
     //객체 생성시 메뉴 셋팅
     Menu(){
@@ -36,5 +36,20 @@ public class Menu {
         Random rand = new Random();
         int randNum = rand.nextInt(3);
         return menuName.get(randNum);
+    }
+
+    String getMenu(int num){
+        return menuName.get(num);
+    }
+
+    int getMenuNum(String menuname){
+        if(menuName.get(0).equals(menuname)){
+            return 0;
+        }else if(menuName.get(1).equals(menuname)){
+            return 1;
+        }else if(menuName.get(2).equals(menuname)){
+            return 2;
+        }else
+            return 99;
     }
 }

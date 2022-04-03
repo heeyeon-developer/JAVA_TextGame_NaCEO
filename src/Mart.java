@@ -21,8 +21,13 @@ public class Mart {
     }
     //마트의 재료들 보여주기
     void showMartMaterials (){
+        int count = 0;
         for(Entry<String, Integer> ent : materials.entrySet()){
-            System.out.println(ent.getKey() + " : " + ent.getValue() + "원");
+            System.out.print(ent.getKey() + " : " + ent.getValue() + "원 /  ");
+            count++;
+            if(count%3 == 0)
+                System.out.println();
+
         }
     }
 
@@ -30,6 +35,7 @@ public class Mart {
         int price = 0;
         int matprice = 0;
         int qty = 0;
+        HashMap<String, Integer> purchaseCeo = new HashMap<>();
         //공백으로 문자 나누기
         String[] temp = mat.split("\\s+");
         if(temp[0].equalsIgnoreCase("완료"))
@@ -39,12 +45,15 @@ public class Mart {
         for(int i=0; i<temp.length/2; i++){
             matprice = materials.get(temp[2*i]);
             qty = Integer.parseInt(temp[2*i+1]);
-            System.out.println(i + " : " + matprice + "," +qty);
             price += matprice*qty;
+            purchaseCeo.put(temp[2*i], Integer.parseInt(temp[2*i+1]));
         }
         if(gameCeo.getCeoMoney() - price >= 0){
-            System.out.println("구매하신 재료들의 가격은 " + price +"원 입니다! 추가로 구매할 재료가 있다면 말해주세요~");
+            System.out.println("구매하신 재료들의 가격은 " + price +"원 입니다! 추가로 구매할 재료가 있다면 말해주세요~\n" +
+                    "(원하는 재료를 다 샀다면 '완료'라고 입력해주세요!!");
             gameCeo.remainCeoMoney(price);
+            //구매한 재료들 나사장의 장바구니에 넣기 - 나사장의 돈이 있을때만!!
+            gameCeo.insertPurchaseMat(purchaseCeo);
             return true;
         }else{
             System.out.println("구매하신 재료들의 가격은 " + price +"원 입니다! 하지만 돈이 부족하세요ㅠㅜㅠ다음에 다시 와주세요!");
