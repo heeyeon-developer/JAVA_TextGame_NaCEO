@@ -1,26 +1,33 @@
 public class Customer {
-    private String menu1 = "";
-    private String menu2 = "";
+    private String customerName = "";
+    private String fristWantFood = "";
+    private String secondWantFood = "";
     private int pay = 0;
-    private int goodPoint = 0;
-    private int badPoint = 0;
+    private int giveGoodPoint = 0;
+    private int giveBadPoint = 0;
+    private Menu customerMenu = new Menu();
 
-    public void sayMenu1(){
+    Customer(String name){
+        this.customerName = name;
+    }
+    String sayMenu1(){
+        String wantMenu = customerMenu.getRandManu();
+        System.out.println(wantMenu + "주문할께요~");
+        return wantMenu;
+    }
+
+    void sayMenu2(){
 
     }
 
-    public void sayMenu2(){
+    void givePay(){
+
+    }
+    void giveGoodPint(){
 
     }
 
-    public void givePay(){
-
-    }
-    public void giveGoodPint(){
-
-    }
-
-    public void giveBadPoint(){
+    void giveBadPoint(){
 
     }
 
