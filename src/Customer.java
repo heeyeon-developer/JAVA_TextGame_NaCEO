@@ -10,6 +10,7 @@ public class Customer {
     Customer(String name){
         this.customerName = name;
     }
+
     String sayMenu1(){
         String wantMenu = customerMenu.getRandManu();
         System.out.println(wantMenu + "주문할께요~");
@@ -32,3 +33,4 @@ public class Customer {
     }
 
 }
+
