@@ -1,4 +1,4 @@
-public class Customer {
+public class Customer extends abCustomer{
     private String customerName = "";
     private String fristWantFood = "";
     private String secondWantFood = "";
@@ -11,6 +11,7 @@ public class Customer {
         this.customerName = name;
     }
 
+    @Override
     String sayMenu1(){
         String wantMenu = customerMenu.getRandManu();
         System.out.println(wantMenu + "주문할께요~");
