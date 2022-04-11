@@ -18,8 +18,11 @@ public class Customer extends abCustomer{
         return wantMenu;
     }
 
-    void sayMenu2(){
-
+    @Override
+    String sayMenu2(){
+        String wantMenu2 = customerMenu.getRandManu();
+        System.out.println(wantMenu2 + "주문할께요~");
+        return wantMenu2;
     }
 
     void givePay(){

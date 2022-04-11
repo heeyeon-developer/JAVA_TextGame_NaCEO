@@ -1,7 +1,8 @@
-public abstract class abCustomer {
+abstract public class abCustomer {
     abCustomer(){}
 
-    String class sayMenu1{}
+    abstract String sayMenu1();
 
-    String class sayMenu2{}
+    abstract String sayMenu2();
+
 }
