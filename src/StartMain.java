@@ -66,6 +66,10 @@ public class StartMain {
                 makeMenu = randCustomer.sayMenu1();
                 int nthMenu = naMenu.getMenuNum(makeMenu);
                 makeResult = naCeo.makeMenu(makeMenu, naMenu, nthMenu);
+                //만든 메뉴를 손님에게 주기
+                //손님이 원하는 메뉴면 pay, goodpoint 주기
+                randCustomer.givePay(makeMenu);
+                randCustomer.giveGoodPoint();
 
                 if(makeResult == false){
                     useranswer = answer.nextInt();

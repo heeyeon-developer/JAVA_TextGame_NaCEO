@@ -25,10 +25,14 @@ public class Customer extends abCustomer{
         return wantMenu2;
     }
 
-    void givePay(){
+    int givePay(String menu){
+        int pay = 0;
+        if(menu == "1"){
 
+        }
+        return pay;
     }
-    void giveGoodPint(){
+    void giveGoodPoint(){
 
     }
 
