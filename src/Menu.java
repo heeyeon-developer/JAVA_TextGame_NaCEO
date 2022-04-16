@@ -6,7 +6,7 @@ public class Menu {
     private static ArrayList<String> menuName = new ArrayList();
 
     //객체 생성시 메뉴 셋팅
-    Menu(){
+    Menu(){//떡볶이 3000 마라탕 11000 비빔밥 8000
         menuList.add("떡볶이 : 떡, 고추장, 고춧가루, 카레가루");
         menuName.add("떡볶이");
         menuList.add("마라탕 : 마라, 숙주, 푸주, 비엔나소세지");
@@ -21,13 +21,13 @@ public class Menu {
     }
 
     //전체 메뉴 출력
-    void PrintMenu(){
+    void printMenu(){
         for(int i = 0; i<menuList.size(); i++)
             System.out.println(menuList.get(i));
     }
 
     //입력한 메뉴 출력
-    void PrintSelectMenu(ArrayList<String> name){
+    void printSelectMenu(ArrayList<String> name){
         System.out.println("특정메뉴 불러오기");
     }
 

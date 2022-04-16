@@ -28,11 +28,17 @@ public class Customer extends abCustomer{
     int givePay(String menu){
         int pay = 0;
         if(menu == "1"){
-
+            pay = 3000;
+        }else if(menu == "2"){
+            pay = 11000;
+        }else{
+            pay = 8500;
         }
         return pay;
     }
     void giveGoodPoint(){
+        int point = 0;
+
 
     }
 

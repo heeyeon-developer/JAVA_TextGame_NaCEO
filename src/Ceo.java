@@ -17,7 +17,9 @@ public class Ceo {
     int getCeoMoney(){
         return this.money;
     }
-
+    void calcCeoMoney(int receiveMoney) {
+        money += receiveMoney;
+    }
     //재료를 구할 수 있다면 자본의 가격에서 구매하고자 하는 메뉴의 가격 빼주기
     void remainCeoMoney(int purchaseItem){
         this.money = this.money - purchaseItem;

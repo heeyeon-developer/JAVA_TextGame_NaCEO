@@ -9,7 +9,7 @@ public class StartMain {
         Mart realMart = new Mart();
         Scanner answer = new Scanner(System.in);
         ArrayList<Integer> wantMat = new ArrayList();
-        Customer randCustomer = new Customer("테스트손님");
+        Girl randCustomer = new Girl("테스트손님");
         System.out.println("=================================");
         System.out.println("WELCOME TO NA'S RESTAURANT  :-)");
         System.out.println("=================================");
@@ -26,7 +26,7 @@ public class StartMain {
                     "아래의 레시피를 보고 앞으로 어떤 재료를 사면 될지 생각해볼까요??\n" +
                     "레시피를 다 보고 나면 아무키나 눌러주세요! 마트로 이동해서 만들고 싶은 레시피의 재료를 사도록 해요!!");
             System.out.println("\n************* Na's Menu *************");
-            naMenu.PrintMenu();
+            naMenu.printMenu();
             System.out.println("*************************************\n");
             answer.nextLine();
         } else {
@@ -68,12 +68,13 @@ public class StartMain {
                 makeResult = naCeo.makeMenu(makeMenu, naMenu, nthMenu);
                 //만든 메뉴를 손님에게 주기
                 //손님이 원하는 메뉴면 pay, goodpoint 주기
-                randCustomer.givePay(makeMenu);
+                naCeo.calcCeoMoney(randCustomer.givePay(makeMenu));
                 randCustomer.giveGoodPoint();
 
                 if(makeResult == false){
-                    useranswer = answer.nextInt();
+
                     System.out.println("다음 손님을 받을까요? 아니면 모자른 재료를 사러 다시 마트로 재료를 사러 가볼까요?? 1. 손님을 받아요! 2.마트로 고고!! 3.아니요 오늘은 장사 끝!!");
+                    useranswer = answer.nextInt();
                     if(useranswer == 1){
                         continue;
                     }else if(useranswer == 2){
@@ -87,7 +88,19 @@ public class StartMain {
             }else if (useranswer == 2){
                 System.out.println("이제 마음의 준비가 끝났나요~~?? 1. 네 고고!! 2. 아직도....");
             }else if (useranswer == 3){
-                System.out.println("마트로 이동!!");
+                System.out.println("\n========== 마트로 이동 ==========\n");
+                while (true) {
+                    String input = answer.nextLine();
+                    boolean result = true;
+                    //재료를 다 입력하면 계산되서 물건을 사기
+                    result = realMart.calcPurchase(input, naCeo);
+
+                    //그만사기 위해서 '완료'를 입력하면 끝내기
+                    if (result == false)
+                        break;
+
+                    realMart.showMartMaterials();
+                }
             }else if (useranswer == 4){
                 naCeo.showMaterials();
             }else {
